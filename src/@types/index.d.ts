@@ -6,9 +6,9 @@ export type questionType = {
 
 export type answertype ={
     questionId:number 
-    answer: string
+    answer: string | null
     isSelected:boolean
-    answerID:number
+    answerID:number | null
   }
 
   export type responseSelected = {
@@ -22,3 +22,24 @@ export type resultType = {
     correctAnswer: string;
     answer: string | null
 } 
+
+export type resultTypeProps = {
+    correctAnswers: answertype[]
+    techQuizQuestions: questionType[]
+    reset: () => void
+}
+
+export type questionTypeProps ={
+    questions: questionType
+    handlePrev: () => void
+    handleNext: (questionNumber: number) => void
+    questionNumber: number
+    handleAnswer: (answer: answertype) => void
+    correctAnswers: answertype[]
+}
+
+export type btnProps ={
+    label:string 
+    onclick: ()=> void
+    isDisabled?:boolean
+}

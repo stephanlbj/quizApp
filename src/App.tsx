@@ -3,21 +3,20 @@ import './App.css'
 import QuestionList from './components/QuestionList'
 import {techQuizQuestions} from "./dummyQuestions"
 import Results from './components/Results'
-
 import { useQuestionContext } from './Context/QuestionContext'
+ 
 
 
 
 function App() {
  
-  const {correctAnswers,handleCorrectAnswer, handleNextQuestion,handlePrevQuestion, question,
-    resetQuiz} = useQuestionContext()
+  const {correctAnswers,handleCorrectAnswer,handleNextQuestion,handlePrevQuestion,question
+  ,resetQuiz} = useQuestionContext()
  
-
 
   return (
   <main className='flex items-center 
-  justify-center min-h-screen'>
+  justify-center  '>
 
    
 

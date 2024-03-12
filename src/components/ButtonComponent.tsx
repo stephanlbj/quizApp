@@ -1,13 +1,11 @@
+import { btnProps } from "../@types"
+ 
 
-type btnProps ={
-    label:string 
-    onclick: ()=> void
-    isDisabled?:boolean
-}
+
 
 const ButtonComponent = ({label, onclick, isDisabled}: btnProps) => {
  
- 
+   
  
     return (
     <button

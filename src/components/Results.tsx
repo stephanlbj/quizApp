@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react"
-import { answertype, questionType } from "../@types"
+import { resultTypeProps } from "../@types"
 import ButtonComponent from "./ButtonComponent"
+import FaceComponent from "./FaceComponent"
 
 
-type resultTypeProps = {
-    correctAnswers: answertype[]
-    techQuizQuestions: questionType[]
-    reset: () => void
-}
+
 
 const Results = ({correctAnswers,
      techQuizQuestions, reset}:resultTypeProps) => {
@@ -26,46 +23,13 @@ const Results = ({correctAnswers,
            
           };
 
-          // const result = () : resultType[] => {
-         
-          //   return  techQuizQuestions.map((question, index)=>{
-          //       if(index===correctAnswers[index].questionId){
-          //           return {
-                        
-          //                   question:question.question,
-          //                   correctAnswer: question.correctAnswer,
-          //                   answer : correctAnswers[index].answer 
-                            
-          //           }
-                    
-          //       } 
-          //       else {
-          //           return {
-          //               question:question.question,
-          //               correctAnswer: question.correctAnswer,
-          //               answer : null 
-                        
-          //       }
-          //       }
-          //   })
-          // }
+          
 
 useEffect(()=>{
     checkAnswers()
 },[]) 
 
-
-// {
-//   result().map((res, index)=>{
-//    return <div key={index}
-//    className="flex flex-col space-y-3 items-center justify-center">
-//   <p  className="text-xl">{index+1} ) {res?.question}</p>
-
-//    <p className={`${res?.correctAnswer.toLocaleLowerCase()=== res?.answer?.toLocaleLowerCase()
-//        ? "text-green-500" : "text-red-500"}`}>{res?.answer}</p>
-//   </div>
-//   })
-// }
+ 
 
  
 
@@ -76,8 +40,8 @@ useEffect(()=>{
         <p className="text-center text-2xl">Your Results</p>
     
         <p className="text-2xl text-center">{`Your score: ${total} out of ${techQuizQuestions.length}`}</p>
-
-
+      
+        <FaceComponent total={total}/>
        
     <ButtonComponent
     label="Try again"
