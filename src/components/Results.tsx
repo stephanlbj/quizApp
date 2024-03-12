@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { answertype, questionType, resultType } from "../@types"
+import { answertype, questionType } from "../@types"
 import ButtonComponent from "./ButtonComponent"
 
 
@@ -26,59 +26,61 @@ const Results = ({correctAnswers,
            
           };
 
-          const result = () : resultType[] => {
+          // const result = () : resultType[] => {
          
-            return  techQuizQuestions.map((question, index)=>{
-                if(index===correctAnswers[index].questionId){
-                    return {
+          //   return  techQuizQuestions.map((question, index)=>{
+          //       if(index===correctAnswers[index].questionId){
+          //           return {
                         
-                            question:question.question,
-                            correctAnswer: question.correctAnswer,
-                            answer : correctAnswers[index].answer 
+          //                   question:question.question,
+          //                   correctAnswer: question.correctAnswer,
+          //                   answer : correctAnswers[index].answer 
                             
-                    }
+          //           }
                     
-                } 
-                else {
-                    return {
-                        question:question.question,
-                        correctAnswer: question.correctAnswer,
-                        answer : null 
+          //       } 
+          //       else {
+          //           return {
+          //               question:question.question,
+          //               correctAnswer: question.correctAnswer,
+          //               answer : null 
                         
-                }
-                }
-            })
-          }
+          //       }
+          //       }
+          //   })
+          // }
 
 useEffect(()=>{
     checkAnswers()
 },[]) 
 
 
+// {
+//   result().map((res, index)=>{
+//    return <div key={index}
+//    className="flex flex-col space-y-3 items-center justify-center">
+//   <p  className="text-xl">{index+1} ) {res?.question}</p>
+
+//    <p className={`${res?.correctAnswer.toLocaleLowerCase()=== res?.answer?.toLocaleLowerCase()
+//        ? "text-green-500" : "text-red-500"}`}>{res?.answer}</p>
+//   </div>
+//   })
+// }
+
  
 
   return (
     <div className="flex flex-col items-center justify-center
-    space-y-3">
+    space-y-3 my-20">
         
-        <p className="text-center text-xl">Your Results</p>
+        <p className="text-center text-2xl">Your Results</p>
     
-        <p>{`Your score: ${total} out of ${techQuizQuestions.length}`}</p>
+        <p className="text-2xl text-center">{`Your score: ${total} out of ${techQuizQuestions.length}`}</p>
 
 
-        {
-            result().map((res, index)=>{
-             return <div key={index}
-             className="flex flex-col space-y-3 items-center justify-center">
-            <p  className="text-xl">{res?.question}</p>
-         
-             <p className={`${res?.correctAnswer.toLocaleLowerCase()=== res?.answer?.toLocaleLowerCase()
-                 ? "text-green-500" : "text-red-500"}`}>{res?.answer}</p>
-            </div>
-            })
-        }
+       
     <ButtonComponent
-    label="Reset"
+    label="Try again"
     onclick={reset}
     />
     </div>

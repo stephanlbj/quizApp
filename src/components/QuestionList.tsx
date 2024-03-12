@@ -45,7 +45,7 @@ const QuestionList = ({questionNumber, questions,
         {
             questions.options.map((question, index)=>{
                 return <div key={index} className={`
-                 ${correctAnswers[questionNumber]?.answerID === index && "border border-blue-500 px-2 py-1"} my-10 `}
+                 ${correctAnswers[questionNumber]?.answerID === index && "border border-blue-500 px-2 py-1"} cursor-pointer my-10 `}
 
                  onClick={()=> handleclick(questionNumber , question , index)}>
                        
